@@ -41,13 +41,11 @@ release {
     failOnUnversionedFiles = true
     failOnUpdateNeeded = true
     revertOnFail = true
-    preCommitText = ''
     preTagCommitMessage = '[Gradle Release Plugin] - pre tag commit: '
     tagCommitMessage = '[Gradle Release Plugin] - creating tag: '
     newVersionCommitMessage = '[Gradle Release Plugin] - new version commit: '
     tagTemplate = '${version}'
     versionPropertyFile = 'gradle.properties'
-    versionProperties = []
     buildTasks = ['build']
     ignoredSnapshotDependencies = []
     pushReleaseVersionBranch = true
@@ -58,7 +56,6 @@ release {
     git {
         requireBranch = 'master'
         pushToRemote = 'origin'
-        pushToBranchPrefix = ''
         commitVersionFileOnly = false
         signTag = false
     }
