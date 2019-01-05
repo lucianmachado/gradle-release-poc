@@ -48,7 +48,7 @@ release {
     versionPropertyFile = 'gradle.properties'
     buildTasks = ['build']
     ignoredSnapshotDependencies = []
-    pushReleaseVersionBranch = true
+    pushReleaseVersionBranch = 'master'
     scmAdapters = [
             net.researchgate.release.GitAdapter,
     ]
