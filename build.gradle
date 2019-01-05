@@ -29,10 +29,23 @@ repositories {
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-actuator')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
+processResources {
+    def version = project.version
+    def revision = file(".git/refs/heads/master").text
 
+    println("VERSION " + version)
+    println("REVISION " + revision)
+
+    filter(org.apache.tools.ant.filters.ReplaceTokens,
+            tokens: [version : project.version, revision: revision])
+
+    inputs.property "version", version
+    inputs.property "revision", revision
+}
 
 release {
     failOnCommitNeeded = true
